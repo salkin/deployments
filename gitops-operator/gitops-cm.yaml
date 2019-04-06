@@ -11,6 +11,9 @@ data:
     - group: certmanager.k8s.io 
       version: v1alpha1
       kind: Certificate
+    - group: certmanager.k8s.io 
+      version: v1alpha1
+      kind: Issuer
 kind: ConfigMap
 metadata:
   name: gitops-operator-config

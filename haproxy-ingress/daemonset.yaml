@@ -6,6 +6,9 @@ metadata:
   name: haproxy-ingress
   namespace: ingress-controller
 spec:
+  selector:
+    matchLabels:
+      run: haproxy-ingress
   template:
     metadata:
       labels:
