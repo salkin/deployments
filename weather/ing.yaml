@@ -16,5 +16,5 @@ spec:
   tls:
     - hosts:
       - niklasw.iki.fi
-    secretName: niklasw-iki-fi-tls
+      secretName: niklasw-iki-fi-tls
 
