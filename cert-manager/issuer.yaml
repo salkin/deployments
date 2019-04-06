@@ -1,0 +1,12 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Issuer
+metadata:
+  name: example-issuer
+spec:
+  acme:
+    email: niklas.wik@iki.fi
+    server: https://acme-v01.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      key: ""
+      name: letsencrypt-prod
+    http01: {}
