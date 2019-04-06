@@ -1,0 +1,19 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: weather
+  namespace: default
+spec:
+  rules:
+  - host: niklasw.iki.fi
+    http:
+      paths:
+      - path: /
+        backend:
+         serviceName: weather
+         servicePort: 8080
+  tls:
+    - hosts:
+      - niklasw.iki.fi
+
