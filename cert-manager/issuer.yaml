@@ -5,7 +5,7 @@ metadata:
 spec:
   acme:
     email: niklas.wik@iki.fi
-    server: https://acme-v01.api.letsencrypt.org/directory
+    server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-prod
     http01: {}
