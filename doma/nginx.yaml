@@ -15,7 +15,7 @@ spec:
       containers:
       - name: php
         imagePullPolicy: Always
-        image: nwik/doma-php:latest
+        image: nwik/doma-php:3.0.6
       - name: nginx
         imagePullPolicy: Always
         image: nwik/doma-nginx:3.0.6
