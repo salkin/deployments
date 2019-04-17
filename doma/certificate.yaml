@@ -5,6 +5,7 @@ metadata:
   namespace: default
 spec:
   secretName: maps-niklasw-iki-fi-tls
+  email: "niklas.wik@iki.fi"
   issuerRef:
     name: letsencrypt-prod
   commonName: niklasw.iki.fi
