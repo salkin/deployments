@@ -13,6 +13,18 @@ spec:
         app: doma-nginx
     spec:
       containers:
+      - name: php
+        imagePullPolicy: Always
+        image: nwik/doma-php:3.0.6
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "nwik"
+        - name: MYSQL_DATABASE
+          value: "doma"
+        - name: MYSQL_USER
+          value: "nwik"
+        - name: MYSQL_PASSWORD
+          value: "nwik"
       - name: nginx
         imagePullPolicy: Always
         image: nwik/doma-nginx:3.0.6
