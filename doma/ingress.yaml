@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: doma
+spec:
+  rules:
+  - host: maps.niklasw.iki.fi
+    http:
+      paths:
+      - path: /
+        backend:
+         serviceName: doma
+         servicePort: 80
+  tls:
+    - hosts:
+      - maps.niklasw.iki.fi
+      secretName: maps-niklasw-iki-fi-tls
+
+
