@@ -12,27 +12,17 @@ spec:
       labels:
         app: grafana
     spec:
-      initContainers:
-      - name: volume-mount-permissions
-        image: busybox
-        command: ["sh", "-c", "chown -R 471:471 /grafana"]
-        volumeMounts:
-        - name: grafana-data
-          mountPath: /grafana
       containers:
       - name: grafana
         imagePullPolicy: Always
         securityContext:
-          runAsUser: 0
+          runAsUser: 471
         image: grafana/grafana
         env:
         - name: GF_AUTH_BASIC_ENABLED
           value: "false"
         - name: GF_AUTH_ANONYMOUS_ENABLED
           value: "false"
-        volumeMounts:
-        - name: grafana-data
-          mountPath: /var/lib/grafana
         ports:
         - name: web
           containerPort: 3000
@@ -43,8 +33,4 @@ spec:
           limits:
             memory: 600Mi
             cpu: 200m
-      volumes:
-      - name: grafana-data
-        persistentVolumeClaim:
-          claimName: grafana-data
 
