@@ -28,6 +28,13 @@ spec:
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
+        volumeMounts:
+          - mountPath: /opt/weatherServer/config.yaml
+            name: weather-config
+            subPath: config.yaml
+      volumes:
+        - configMap:
+            name: weather-config
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
