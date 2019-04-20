@@ -13,7 +13,7 @@ spec:
         app: grafana
     spec:
       containers:
-      - name: grafana
+      - name: grafana:5.4.3 
         imagePullPolicy: Always
         securityContext:
           runAsUser: 471

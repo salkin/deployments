@@ -5,7 +5,7 @@ data:
     GrafanaServer: grafana:3000
     GrafanaUser: admin
     GrafanaPassword: password
-    GrafanaAuthToken:
+    GrafanaAuthToken: eyJrIjoiRVBZUktqbTJKRThoN0RkdmtnVmpjaXZNeUlxR1F3dDgiLCJuIjoid2VhdGhlciIsImlkIjoxfQ== 
     HttpDir: /go/
 kind: ConfigMap
 metadata:
