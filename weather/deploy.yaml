@@ -33,7 +33,8 @@ spec:
             name: weather-config
             subPath: config.yaml
       volumes:
-        - configMap:
+        - name: weather-config
+          configMap:
             name: weather-config
       dnsPolicy: ClusterFirst
       restartPolicy: Always
