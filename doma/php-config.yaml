@@ -4,6 +4,7 @@ data:
     DB_HOST: mysql:3306
     DB_USERNAME: nwik
     DB_PASSWORD: nwik
+    DB_DATABASE_NAME: doma
 kind: ConfigMap
 metadata:
   name: doma-php
