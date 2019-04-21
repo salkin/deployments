@@ -2,7 +2,7 @@ apiVersion: v1
 data:
   config.yaml: |
     DB_HOST: mysql:3306
-    DB_USER: nwik
+    DB_USERNAME: nwik
     DB_PASSWORD: nwik
 kind: ConfigMap
 metadata:
