@@ -25,7 +25,7 @@ spec:
         ports:
         - name: web
           containerPort: 80
-    volumes:
-    - name: phpconfig
-      configMap:
-        name: doma-php
+      volumes:
+      - name: phpconfig
+        configMap:
+          name: doma-php
