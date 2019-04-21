@@ -16,10 +16,16 @@ spec:
       - name: php
         imagePullPolicy: Always
         image: nwik/doma-php:3.0.6
+        volumeMounts:
+          - name: php-config
+            mountPath: /config
       - name: nginx
         imagePullPolicy: Always
         image: nwik/doma-nginx:3.0.6
         ports:
         - name: web
           containerPort: 80
-
+    volumes:
+      - name: php-config
+        configMap:
+          name: doma-php
