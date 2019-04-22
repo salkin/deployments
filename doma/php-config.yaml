@@ -5,6 +5,16 @@ data:
     DB_USERNAME: nwik
     DB_PASSWORD: nwik
     DB_DATABASE_NAME: doma
+    ROOT_URL: ""
+    TIME_ZONE: "Europe/Helsinki"
+    _SITE_TITLE: "Niklas map archive"
+    _SITE_DESCRIPTION: "DOMA map archive"
+    LANGUAGE_CODE: "sv"
+    MAP_IMAGE_PATH: "map_images"
+    DB_MAP_TABLE: "doma_maps"
+    DB_SETTING_TABLE: "doma_settings"
+    DB_USER_TABLE: "doma_users"
+    DB_CATEGORY_TABLE: "doma_categories"
 kind: ConfigMap
 metadata:
   name: doma-php
