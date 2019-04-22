@@ -19,6 +19,8 @@ spec:
         volumeMounts:
         - name: phpconfig
           mountPath: /config
+        - name: doma-pvc
+          mountPath: /code/map_images
       - name: nginx
         imagePullPolicy: Always
         image: nwik/doma-nginx:3.0.6
@@ -26,6 +28,9 @@ spec:
         - name: web
           containerPort: 80
       volumes:
+      - name: doma-pvc
+        persistentVolumeClaim:
+          claimName: doma-data
       - name: phpconfig
         configMap:
           name: doma-php
