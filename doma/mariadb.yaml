@@ -15,7 +15,7 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: doma-mariadb
+            claimName: doma-mariadb-pvc
       containers:
       - name: mariadb
         imagePullPolicy: Always

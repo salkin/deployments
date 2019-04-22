@@ -1,13 +1,37 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: doma-web
+spec:
+  capacity:
+    storage: 10Gi
+  # volumeMode field requires BlockVolume Alpha feature gate to be enabled.
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-storage
+  local:
+    path: /opt/pvc/doma
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - server
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: doma-data
+  name: doma-web-pvc
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 10Gi
-  storageClassName: "managed-nfs-storage"
+  volumeName: doma-web
+  storageClassName: "local-storage"
 

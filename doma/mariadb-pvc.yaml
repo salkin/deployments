@@ -1,13 +1,37 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: doma-mariadb
+spec:
+  capacity:
+    storage: 1Gi
+  # volumeMode field requires BlockVolume Alpha feature gate to be enabled.
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-storage
+  local:
+    path: /opt/data
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - server
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: doma-mariadb
+  name: doma-mariadb-pvc
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi
-  storageClassName: "managed-nfs-storage"
+  volumeName: doma-mariadb
+  storageClassName: "local-storage"
 
