@@ -4,6 +4,7 @@ kind: Ingress
 metadata:
   annotations:
     certmanager.k8s.io/issuer: letsencrypt-prod
+    ingress.kubernetes.io/proxy-body-size: 15000000
   name: doma
 spec:
   rules:
