@@ -15,6 +15,11 @@ data:
     DB_SETTING_TABLE: "doma_settings"
     DB_USER_TABLE: "doma_users"
     DB_CATEGORY_TABLE: "doma_categories"
+    USE_GA: "0"
+    IMAGE_RESIZING_METHOD: "1"
+    THUMBNAIL_WIDTH: "400"
+    THUMBNAIL_HEIGHT: "100"
+    THUMBNAIL_SCALE: "0.5"
 kind: ConfigMap
 metadata:
   name: doma-php
