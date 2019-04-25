@@ -27,6 +27,9 @@ spec:
         ports:
         - name: web
           containerPort: 80
+        volumeMounts:
+        - name: doma-pvc
+          mountPath: /code/map_images
       volumes:
       - name: doma-pvc
         persistentVolumeClaim:
