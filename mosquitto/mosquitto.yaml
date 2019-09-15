@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mosquitto
+spec:
+  selector:
+    matchLabels:
+      app: mosquitto
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mosquitto
+    spec:
+      containers:
+      - name: mosquitto
+        imagePullPolicy: Always
+        image: eclipse-mosquitto:1.6.5
+        volumeMounts:
+        - name: data
+          mountPath: /mosquitto/data
+      volumes:
+      - name: mosquitto
+        persistentVolumeClaim:
+          claimName: mosquitto-pvc
