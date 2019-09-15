@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    #Metallb configuration
+    address-pools:
+    - name: arppool
+      protocol: layer2
+      addresses:
+      - 192.168.1.2-192.168.1.30
+      auto-assign: false
