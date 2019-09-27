@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  local.cnf: |
+    [mysqld]
+    innodb_flush_method=O_DSYNC
+kind: ConfigMap
+metadata:
+  name: doma-mariadb
+

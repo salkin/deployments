@@ -8,8 +8,10 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  nfs:
-    path: /mnt/array1/kube_nfs/doma_mariadb
-    server: 192.168.1.209
-    readOnly: false
-
+  flexvolume:
+    driver: "microsoft.com/smb"
+    secretref:
+      name: smbcreds
+    options:
+      source: "//192.168.1.209/kube_nfs/doma_mariadb"
+      mountoptions: "vers=1.0,guest,rw,suid,dev,exec,auto,users,async,atime,_netdev,uid=999"

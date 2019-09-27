@@ -16,10 +16,13 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: doma-mariadb-pvc
+        - name: doma-config
+          configMap:
+            name: doma-mariadb
       containers:
       - name: mariadb
         imagePullPolicy: Always
-        image: nwik/doma-mariadb:10.1
+        image: mariadb:10.4
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: "nwik"
@@ -32,6 +35,8 @@ spec:
         volumeMounts:
           - name: data
             mountPath: /var/lib/mysql
+          - name: doma-config
+            mountPath: /etc/mysql/conf.d
         ports:
         - name: db
           containerPort: 3126

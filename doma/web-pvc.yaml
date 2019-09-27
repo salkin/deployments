@@ -5,22 +5,17 @@ metadata:
 spec:
   capacity:
     storage: 10Gi
-  # volumeMode field requires BlockVolume Alpha feature gate to be enabled.
-  volumeMode: Filesystem
   accessModes:
   - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-storage
-  local:
-    path: /opt/pvc/doma
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - server
+  persistentVolumeReclaimPolicy: Retain
+  flexVolume:
+    driver: "microsoft.com/smb"
+    secretRef:
+      name: smbcreds
+    options:
+      source: "//192.168.1.209/kube_nfs/doma_web"
+      mountoptions: "vers=1.0,guest,rw,suid,dev,exec,auto,users,async,atime,_netdev,uid=999"
+
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -33,5 +28,4 @@ spec:
     requests:
       storage: 10Gi
   volumeName: doma-web
-  storageClassName: "local-storage"
 
