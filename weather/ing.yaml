@@ -31,6 +31,11 @@ spec:
         backend:
          serviceName: none
          servicePort: 8080
+      - path: /start
+        backend:
+         serviceName: none
+         servicePort: 8080
+
   tls:
     - hosts:
       - niklasw.iki.fi
