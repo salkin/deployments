@@ -4,6 +4,8 @@ kind: Ingress
 metadata:
   name: weather
   namespace: default
+  annotations:
+    ingress.kubernetes.io/app-root: /basicui/app
 spec:
   rules:
   - host: niklasw.iki.fi
@@ -13,6 +15,27 @@ spec:
         backend:
          serviceName: weather
          servicePort: 8080
+      - path: /paperui
+        backend:
+         serviceName: none
+         servicePort: 8080
+      - path: /habpanel
+        backend:
+         serviceName: none
+         servicePort: 8080
+      - path: /homebuilder
+        backend:
+         serviceName: none
+         servicePort: 8080
+      - path: /habmin
+        backend:
+         serviceName: none
+         servicePort: 8080
+  tls:
+    - hosts:
+      - niklasw.iki.fi
+      secretName: niklasw-iki-fi-tls
+
   tls:
     - hosts:
       - niklasw.iki.fi
