@@ -33,7 +33,7 @@ spec:
       volumes:
       - name: doma-pvc
         persistentVolumeClaim:
-          claimName: doma-web-pvc
+          claimName: doma-pvc
       - name: phpconfig
         configMap:
           name: doma-php
