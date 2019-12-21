@@ -15,7 +15,7 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: doma-mariadb-pvc
+            claimName: rook-mariadb-pvc
         - name: doma-config
           configMap:
             name: doma-mariadb

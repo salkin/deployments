@@ -2,12 +2,12 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: doma-mariadb-pvc
+  name: rook-mariadb-pvc
 spec:
+  storageClassName: rook-ceph-block
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 5Gi
-  volumeName: doma-mariadb-pv
 
