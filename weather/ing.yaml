@@ -17,23 +17,23 @@ spec:
          servicePort: 8080
       - path: /paperui
         backend:
-         serviceName: none
+         serviceName: weather
          servicePort: 8080
       - path: /habpanel
         backend:
-         serviceName: none
+         serviceName: weather
          servicePort: 8080
       - path: /homebuilder
         backend:
-         serviceName: none
+         serviceName: weather
          servicePort: 8080
       - path: /habmin
         backend:
-         serviceName: none
+         serviceName: weather
          servicePort: 8080
       - path: /start
         backend:
-         serviceName: none
+         serviceName: weather
          servicePort: 8080
 
   tls:
