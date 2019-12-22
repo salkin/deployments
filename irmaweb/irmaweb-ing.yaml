@@ -1,0 +1,19 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: irmaweb
+spec:
+  rules:
+  - host: irma.niklasw.iki.fi
+    http:
+      paths:
+      - path: /
+        backend:
+         serviceName: irmaweb
+         servicePort: 5000
+  tls:
+    - hosts:
+      - irma.niklasw.iki.fi
+      secretName: irma-niklasw-iki-fi-tls
+
