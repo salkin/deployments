@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: irmaweb
+spec:
+  selector:
+    matchLabels:
+      app: irmaweb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: irmaweb
+    spec:
+      containers:
+      - name: irmacron
+        command:
+        - "python3"
+        - "/opt/irmacron.py"
+        env:
+        - name: DB_DIR
+          value: "/opt/data"
+        volumeMounts:
+        - name: data
+          mountPath: /opt/data
+      - name: irmaweb
+        command: 
+        - "python3"
+        - "/opt/irmaweb.py"
+        imagePullPolicy: Always
+        image: nwik/irmaweb
+        env:
+        - name: DB_DIR
+          value: "/opt/data"
+        volumeMounts:
+        - name: data
+          mountPath: /opt/data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: irmaweb
