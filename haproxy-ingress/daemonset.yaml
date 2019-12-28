@@ -17,8 +17,15 @@ spec:
       serviceAccountName: ingress-controller
       hostNetwork: true
       containers:
+			- name: prometheus-exporter
+        image: quay.io/prometheus/haproxy-exporter:v0.9.0
+        args:
+          - --haproxy.scrape-uri=http://127.0.0.1:1936/haproxy?stats;csv
+        ports:
+          - name: prom-metrics
+            containerPort: 9101    
       - name: haproxy-ingress
-        image: quay.io/jcmoraisjr/haproxy-ingress:v0.7.2
+        image: quay.io/jcmoraisjr/haproxy-ingress:v0.8.0
         args:
         - --default-backend-service=$(POD_NAMESPACE)/default-http-backend
         - --default-ssl-certificate=$(POD_NAMESPACE)/tls-secret
