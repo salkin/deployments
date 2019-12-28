@@ -17,6 +17,7 @@ spec:
         command:
         - "python3"
         - "/opt/irmacron.py"
+        image: nwik/irmaweb
         env:
         - name: DB_DIR
           value: "/opt/data"
