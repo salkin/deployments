@@ -25,7 +25,7 @@ spec:
           - name: prom-metrics
             containerPort: 9101    
       - name: haproxy-ingress
-        image: quay.io/jcmoraisjr/haproxy-ingress:v0.8.0
+        image: quay.io/jcmoraisjr/haproxy-ingress:v0.8
         args:
         - --default-backend-service=$(POD_NAMESPACE)/default-http-backend
         - --default-ssl-certificate=$(POD_NAMESPACE)/tls-secret
