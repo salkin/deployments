@@ -7,7 +7,7 @@ spec:
   ports:
   - name: https
     port: 8080
-  externalName: 192.168.1.91
+  externalName: 192.168.1.69
   type: ExternalName
 
 
