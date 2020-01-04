@@ -13,17 +13,6 @@ spec:
         app: irmaweb
     spec:
       containers:
-      - name: irmacron
-        command:
-        - "python3"
-        - "/opt/irmacron.py"
-        image: nwik/irmaweb
-        env:
-        - name: DB_DIR
-          value: "/opt/data"
-        volumeMounts:
-        - name: data
-          mountPath: /opt/data
       - name: irmaweb
         command: 
         - "python3"
